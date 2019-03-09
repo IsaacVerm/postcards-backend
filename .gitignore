@@ -105,3 +105,4 @@ venv.bak/
 
 # visual code
 .vscode/
+node_modules

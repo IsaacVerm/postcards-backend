@@ -62,6 +62,18 @@ What seems missing:
   - glimpse at postcard
   - analysis shows relation with other postcards
 
+## Installation
+
+Install required Python packages.
+
+`source venv/bin/activate`
+
+`pip install -r requirements.txt`
+
+Install required Javascript packages. `node` version used is v10.15.3. `npm` is by default a part of `node`.
+
+`npm install`
+
 ## Flask
 
 Make app available: `export FLASK_APP=appname`
@@ -75,6 +87,10 @@ Run server: `flask run`
 Keep REST design principles in mind (e.g. [Programming historian](https://programminghistorian.org/en/lessons/creating-apis-with-python-and-flask#api-design-principles)).
 
 ## Testing
+
+Testing is done using Postman and Newman (the Postman CLI).
+
+Requests are part of collections and tests are linked to requests.
 
 ## Documentation
 
@@ -91,4 +107,3 @@ Add Procfile. Deploying a single file module is [different](https://stackoverflo
 Deploy: `heroku create hello-flask-example`.
 
 And push code to git repository used by Heroku: `git push heroku`
-
