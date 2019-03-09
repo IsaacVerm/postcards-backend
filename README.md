@@ -62,6 +62,14 @@ What seems missing:
   - glimpse at postcard
   - analysis shows relation with other postcards
 
+## Flask
+
+Make app available: `export FLASK_APP=appname`
+
+Activate debug mode: `export FLASK_ENV=development`
+
+Run server: `flask run`
+
 ## API
 
 Keep REST design principles in mind (e.g. [Programming historian](https://programminghistorian.org/en/lessons/creating-apis-with-python-and-flask#api-design-principles)).
