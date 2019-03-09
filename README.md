@@ -88,9 +88,17 @@ Keep REST design principles in mind (e.g. [Programming historian](https://progra
 
 ## Testing
 
+### API testing
+
 Testing is done using Postman and Newman (the Postman CLI).
 
 Requests are part of collections and tests are linked to requests.
+
+### E2E testing
+
+E2E testing is done with Cypress.
+
+Launch Cypress from root: `npm run cypress:open`. Based on script in `package.json`.
 
 ## Documentation
 
