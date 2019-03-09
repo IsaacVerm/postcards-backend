@@ -79,3 +79,16 @@ Keep REST design principles in mind (e.g. [Programming historian](https://progra
 ## Documentation
 
 [Sphinx](http://www.sphinx-doc.org/) seems a good candidate since it's also used for the offical Python documentation.
+
+## Deployment
+
+Heroku is used for deployment since it's easy to setup with Flask and there are [decent tutorials](https://medium.com/the-andela-way/deploying-a-python-flask-app-to-heroku-41250bda27d0) available.
+
+Install [Heroku CLI](https://devcenter.heroku.com/articles/heroku-cli#download-and-install).
+
+Add Procfile. Deploying a single file module is [different](https://stackoverflow.com/questions/50023430/deploying-flask-application-written-in-one-file-to-heroku) from deploying a fullblown app as done in the tutorial so the `gunicorn` line is different.
+
+Deploy: `heroku create hello-flask-example`.
+
+And push code to git repository used by Heroku: `git push heroku`
+

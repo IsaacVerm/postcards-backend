@@ -8,3 +8,5 @@ def credentials(name):
         return jsonify(user='myself', password='sense')
     if name == "you":
         return jsonify(user='yourself', password='nonsense')
+    else:
+        return ''
