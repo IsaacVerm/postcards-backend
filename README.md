@@ -11,6 +11,7 @@ Project according to best practices:
   - low level (unit or API tests)
   - E2E
 - deployed early
+- use virtual environment
 - (optional) CLI
 
 ## Possible technologies
