@@ -123,7 +123,7 @@ Install [Heroku CLI](https://devcenter.heroku.com/articles/heroku-cli#download-a
 
 Add Procfile. Deploying a single file module is [different](https://stackoverflow.com/questions/50023430/deploying-flask-application-written-in-one-file-to-heroku) from deploying a fullblown app as done in the tutorial so the `gunicorn` line is different.
 
-Deploy: `heroku create hello-flask-example`.
+Deploy: `heroku create postcards`.
 
 And push code to git repository used by Heroku: `git push heroku`
 
