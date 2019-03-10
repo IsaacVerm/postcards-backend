@@ -94,6 +94,8 @@ Testing is done using Postman and Newman (the Postman CLI).
 
 Requests are part of collections and tests are linked to requests.
 
+Tests can be run using `newman run collection`.
+
 ### E2E testing
 
 E2E testing is done with Cypress.
