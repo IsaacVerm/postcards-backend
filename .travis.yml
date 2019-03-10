@@ -1,17 +1,17 @@
 language: node_js
 node_js:
-- 10.15.3
-install:
-- npm install
-before_script:
-- node --version
-- npm --version
-- node_modules/.bin/newman --version
-script:
-- node_modules/.bin/newman run hello_postman_collection.json
-- npm run cypress:run
+  - 10.15.3
 deploy:
   provider: heroku
   api_key:
     secure: t0K6Xegq8a5RJ/ALbjE1TVahW9gMjVKj+ymNsL/ewEZ5fqtDZ2LiZQflNptUz4KHZQ00ArfYfOxLvtiKkES7+6I9n08RFyGD6AIAQaAd6OyRsI7HnJBDZ9L4WVVWBPxdp8NyBD4nIUu/afFdsc2dLfVV29VoBPsNVU8yRdb3hVxW2X4xqCdZpcI2fyut+njvnzeiaBw/GIrbAS6TM5ABezA7YE4/QgKEBNyttTewaYszL45x7MWm3Tn2qPixu/Yr65uJQQa8IbvJGGvN1hrU+tggFTWOVGrnGFfmhnxaT4CD/ZijvrONYTIXqvvkZMQGjVndqQtQukw1CCmm4AS4lGz7Ina5zeIQlyjFP1wiuutD/YDUliL2c29vAZ14don4P3Tl6fSscpfWo9YH0oZ8msM4uHBbY2+ZPiVCURetQ3U5nUbzZc732nL/LcFiTkg7gGbLqRLsV7Nj46l+BwV6hDoihw+vcNoZ570Ckttfv6Ga1H5LEajWlL+Ev++y5VLUqIlN4Gth8Z6ZXSY/+rJv/10O489KNEU3Y12YS+DWJeIX88vNm85Gl258LhZwbrGfM+zsGkUclRxz8p7JwhPbejw5Aa5aPP2cTRpfmuxvlBAq9aVwF2Rx2GPwKJBj5tLLNbDg8+1Z++Ip08Db/ddheHIFxwHCah5xuDORKWeMaTg=
-  app: postcards-api
+  app: hello-flask-example
+install:
+  - npm install
+before_script:
+  - node --version
+  - npm --version
+  - node_modules/.bin/newman --version
+script:
+  - node_modules/.bin/newman run hello_postman_collection.json
+  - npm run cypress:run

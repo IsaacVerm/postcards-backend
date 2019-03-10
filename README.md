@@ -123,7 +123,7 @@ Install [Heroku CLI](https://devcenter.heroku.com/articles/heroku-cli#download-a
 
 Add Procfile. Deploying a single file module is [different](https://stackoverflow.com/questions/50023430/deploying-flask-application-written-in-one-file-to-heroku) from deploying a fullblown app as done in the tutorial so the `gunicorn` line is different.
 
-Deploy: `heroku create postcards`.
+Deploy: `heroku create appname`.
 
 And push code to git repository used by Heroku: `git push heroku`
 
@@ -131,7 +131,7 @@ And push code to git repository used by Heroku: `git push heroku`
 
 Both E2E and API tests are run each time a new commit is pushed to GitHub. New commits are automatically detected by [Travis](https://travis-ci.com/). The `.travis.yml` file configures exactly how the continuous integration works.
 
-The application is automatically deployed to Heroku as well. To change the key used for Heroku run `travis encrypt $(heroku auth:token) --add deploy.api_key`. Make sure to have [both the Travis and Heroku CLI installed](https://docs.travis-ci.com/user/deployment/heroku/).
+The application is automatically deployed to Heroku as well. To change the key used for Heroku run `travis encrypt $(heroku auth:token) --add deploy.api_key`. Make sure to have [both the Travis and Heroku CLI installed](https://docs.travis-ci.com/user/deployment/heroku/). Deployment takes places before testing since I don't mind having a broken build. I'll fix it soon enough anyway.
 
 ## TO DO
 
