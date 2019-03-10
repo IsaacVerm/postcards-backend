@@ -1,15 +1,17 @@
 language: node_js
 node_js:
-  - '10.15.3'
-
+- 10.15.3
 install:
-  - npm install
-
+- npm install
 before_script:
-  - node --version
-  - npm --version
-  - node_modules/.bin/newman --version
-
+- node --version
+- npm --version
+- node_modules/.bin/newman --version
 script:
-  - node_modules/.bin/newman run hello_postman_collection.json
-  - npm run cypress:run
+- curl -X GET https://api.getpostman.com/collections/%COLLECTION_ID% -H "X-Api-Key: %POSTMAN_API_KEY%" -H "Cache-Control: no-cache" -o hello_postman_auto_collection.json
+- node_modules/.bin/newman run hello_postman_auto_collection.json
+- npm run cypress:run
+env:
+  matrix:
+  - secure: wB/MMiUXH5XSgdTDdHnie/sybxK72nVdZAFrxeSbz1A9hwnTjLbowTNwwcKi2m8SSKjU2L6M+kfnqYN0pGk9fJSabYioZxvo7Ez9uJPYQxqkfp+b/2yDP3Sd+guYyKCYaBXQSXY5sIOAGt5hin4r6IfkzRQZoHxtWKRdya9doSreVoHydXb18ZuZXTv/qLLUhzGTL7Mjw/1WmMDvyEMmK3Q7OmDXh2bwcz60Nom4bfWWsk6oUsJ07Rdb7Pv2ebmOpCPY5Sd61Tc2MbhYEHECfAVCvZMjYGnmCDY9ezYbJ6gRDzVQ0zVhxwcZwxJL7KpAm1Iej6+hozffDtcov/fbetcsOgR3ocTAD3AEMWfyIdKb3wahBOW94w598FwUxBzQ5snMJ9sh+wobKNx2L1hoocjCzhSsLzGPWirhtwDvCKIQwM2kWuyrH8ceEzgvgfKBF16UlN53gYpbAqzheoP48PDhIKrgDQYjl1r+9l+dcjWZlVyl7xxshkezdca+ZgnxtjbEBgtAkoWuxvYIisdoW/rDr9PUSizM0d0ofRFVMBZX8aN6J90HW9sszW2kmQDoxXhnMuOGC9RgDA83WnxI4M8PFst0dE3er37fgWWOidqGFuH/u8EpcyjDsEMwPafWZGdflM9z8IdNX4yHY+G3jnNRDWIdemWypAuKZqgPAxo=
+  - secure: ZRzTDgldZywobgApMdGphauxAuKtnqsNDFry6TNiA+UHHqZW+dY4DhyrMG0k8lLQ6xOClcby0QCDlQjnqPxsoQ8FcCv4P+8qLLjswTvi4bopRuiLDcD40z17/FY4NcMCc9QrTUeKcbJSJmiuE7Fn6hgRMdE+WUttMsYFzfFfBqBNwOHe9JCWF4Zk9FyFJ1ZMZcoKOYfysL76SrxYi7etyZdLuFcJrmCA8eBiEXqqN/ddX3SBprLaNzRC/2BtgTAlCRozrg71sG5b3oB3xgGgB2sJXSHUmUnMJ7wbDB9k8LCak7zK+CoHdPh0E9b6LnCU7eK5+Kv3tSNZcsOvwxD63MoowjIVBi7iJElQMBasnDlI5WUOJReItVZQMmHfsjlG90EaBqanIyhODGaexHKPVYVgQcqLLHfe8HhdFiA18aWxRXs10AUmPB/X5hxsydB/fBHmt4MlmbobrbfzavS3cEFd4fRy/VxkhErBJmBPBvMQUkAP5gqHJuYvka3+EBtsD/rpN5TRTv4r01ICTY86pKejSHfixvYzlpg7zrYlQj26pDQfpHCGiUnVFmbQg4YWmQV3e+x1mUz09Pk39iRfPGWBn0wcgT4C0B5XRL6AwcomxMMKAO6ylLceRx7vsAJ23zaNUs8VlYtQ0N7Wq0CQoTnI3Swwi1AIOxnPqUV/5NI=

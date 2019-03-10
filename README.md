@@ -75,6 +75,8 @@ Install required Javascript packages. `node` version used is v10.15.3. `npm` is 
 
 `npm install`
 
+The Travis gem is necessary to encrypt environment variables for Travis. The version doesn't matter too much so just run `gem install travis`.
+
 ## Flask
 
 Make app available: `export FLASK_APP=appname`
@@ -96,6 +98,14 @@ Testing is done using Postman and Newman (the Postman CLI).
 Requests are part of collections and tests are linked to requests.
 
 Tests can be run using `newman run collection`. Tests are also configured to be run using [Travis](https://travis-ci.com/IsaacVerm/postcards).
+
+By default updates in tests aren't automatically exported as collections. The `newman` CLI [doesn't offer](https://github.com/postmanlabs/postman-app-support/issues/2691) any functionality to do this either. Since manually exporting the tests each time you push a commit is a hassle we still need an automated approach. A request is sent using the Postman API to retrieve the latest version of the collection.
+
+An API key and collection uid of the collection are necessary to send the request. Since we want to keep these secret we have to [encrypt them](https://docs.travis-ci.com/user/environment-variables) using the following command:
+
+`travis encrypt MY_SECRET_ENV=super_secret --add env.matrix --com`
+
+`--com` option is necessary to tackle [this issue](https://github.com/travis-ci/travis-ci/issues/10137).
 
 ### E2E testing
 
@@ -125,4 +135,6 @@ Both E2E and API tests are run each time a new commit is pushed to GitHub. New c
 
 # TO DO
 
-- update tests using the Postman API (so collection doesn't has to be exported manually)
+- update tests using the [Postman API](https://docs.api.getpostman.com/) (so collection doesn't has to be exported manually)
+- add [documentation API](https://learning.getpostman.com/docs/postman/api_documentation/intro_to_api_documentation/)
+- scripts to deploy/test both locally and on CI/Heroku
