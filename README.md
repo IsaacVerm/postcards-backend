@@ -101,11 +101,9 @@ Tests can be run using `newman run collection`. Tests are also configured to be 
 
 By default updates in tests aren't automatically exported as collections. The `newman` CLI [doesn't offer](https://github.com/postmanlabs/postman-app-support/issues/2691) any functionality to do this either. Since manually exporting the tests each time you push a commit is a hassle we still need an automated approach. A request is sent using the Postman API to retrieve the latest version of the collection.
 
-An API key and collection uid of the collection are necessary to send the request. Since we want to keep these secret we have to [encrypt them](https://docs.travis-ci.com/user/environment-variables) using the following command:
+An API key and collection uid of the collection are necessary to send the request. Both of these are in the `.env` file. This file ignored by git so they remain secret. They're imported by the `export_postman_collection.py` script. 
 
-`travis encrypt MY_SECRET_ENV=super_secret --add env.matrix --com`
-
-`--com` option is necessary to tackle [this issue](https://github.com/travis-ci/travis-ci/issues/10137).
+As explained in the issues you have to run `./export_postman_collection.sh` before commiting your code to make sure you have the latest version of the collection.
 
 ### E2E testing
 
@@ -145,4 +143,4 @@ Both E2E and API tests are run each time a new commit is pushed to GitHub. New c
 
 It would be nice to export the Postman tests automatically. However, 2 separate jobs are necessary to do this at the moment. A Python job to export from Postman with a REST request and the other job is used to run the tests (example in commit `Configure Travis to use both Python and NodeJS`). I didn't find out yet how to share the exported collection from the Python job to the other job.
 
-In order to avoid having to do it completely manually a Python script `export_postman_collection.py` has to be run first before commiting.
+In order to avoid having to do it completely manually a shell script has to be run first before commiting.
