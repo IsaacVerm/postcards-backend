@@ -133,8 +133,16 @@ And push code to git repository used by Heroku: `git push heroku`
 
 Both E2E and API tests are run each time a new commit is pushed to GitHub. New commits are automatically detected by [Travis](https://travis-ci.com/). The `.travis.yml` file configures exactly how the continuous integration works.
 
-# TO DO
+## TO DO
 
 - update tests using the [Postman API](https://docs.api.getpostman.com/) (so collection doesn't has to be exported manually)
 - add [documentation API](https://learning.getpostman.com/docs/postman/api_documentation/intro_to_api_documentation/)
 - scripts to deploy/test both locally and on CI/Heroku
+
+## Issues
+
+### Exporting collection is only semi automatic
+
+It would be nice to export the Postman tests automatically. However, 2 separate jobs are necessary to do this at the moment. A Python job to export from Postman with a REST request and the other job is used to run the tests (example in commit `Configure Travis to use both Python and NodeJS`). I didn't find out yet how to share the exported collection from the Python job to the other job.
+
+In order to avoid having to do it completely manually a Python script `export_postman_collection.py` has to be run first before commiting.
