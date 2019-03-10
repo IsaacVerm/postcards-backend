@@ -12,6 +12,7 @@ Project according to best practices:
   - E2E
 - deployed early
 - use virtual environment
+- continuous integration
 - (optional) CLI
 
 ## Possible technologies
@@ -94,7 +95,7 @@ Testing is done using Postman and Newman (the Postman CLI).
 
 Requests are part of collections and tests are linked to requests.
 
-Tests can be run using `newman run collection`.
+Tests can be run using `newman run collection`. Tests are also configured to be run using [Travis](https://travis-ci.com/IsaacVerm/postcards).
 
 ### E2E testing
 
@@ -117,3 +118,11 @@ Add Procfile. Deploying a single file module is [different](https://stackoverflo
 Deploy: `heroku create hello-flask-example`.
 
 And push code to git repository used by Heroku: `git push heroku`
+
+## Continuous integration
+
+Both E2E and API tests are run each time a new commit is pushed to GitHub. New commits are automatically detected by [Travis](https://travis-ci.com/). The `.travis.yml` file configures exactly how the continuous integration works.
+
+# TO DO
+
+- update tests using the Postman API (so collection doesn't has to be exported manually)
