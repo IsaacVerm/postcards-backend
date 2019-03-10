@@ -131,13 +131,22 @@ And push code to git repository used by Heroku: `git push heroku`
 
 Both E2E and API tests are run each time a new commit is pushed to GitHub. New commits are automatically detected by [Travis](https://travis-ci.com/). The `.travis.yml` file configures exactly how the continuous integration works.
 
-The application is automatically deployed to Heroku as well. To change the key used for Heroku run `travis encrypt $(heroku auth:token) --add deploy.api_key`. Make sure to have [both the Travis and Heroku CLI installed](https://docs.travis-ci.com/user/deployment/heroku/). Deployment takes places before testing since I don't mind having a broken build. I'll fix it soon enough anyway.
+Currently the deployment process is still fairly manual:
+
+* go to the [Heroku Dashboard](https://dashboard.heroku.com) and deploy your latest feature branch
+* merge feature branch into master
+* push master (triggers automated checks)
+
+This gives confidence everything is tested at the end. However:
+
+* you still have to deploy manually
+* master branch can be in a broken state because testing happens after deploying
 
 ## TO DO
 
 - update tests using the [Postman API](https://docs.api.getpostman.com/) (so collection doesn't has to be exported manually)
 - add [documentation API](https://learning.getpostman.com/docs/postman/api_documentation/intro_to_api_documentation/)
-- scripts to deploy/test both locally and on CI/Heroku
+- automated deployment (after testing)
 
 ## Issues
 
