@@ -101,7 +101,7 @@ Tests can be run using `newman run collection`. Tests are also configured to be 
 
 By default updates in tests aren't automatically exported as collections. The `newman` CLI [doesn't offer](https://github.com/postmanlabs/postman-app-support/issues/2691) any functionality to do this either. Since manually exporting the tests each time you push a commit is a hassle we still need an automated approach. A request is sent using the Postman API to retrieve the latest version of the collection.
 
-An API key and collection uid of the collection are necessary to send the request. Both of these are in the `.env` file. This file ignored by git so they remain secret. They're imported by the `export_postman_collection.py` script. 
+An API key and collection uid of the collection are necessary to send the request. Both of these are in the `secrets.py` file. This file ignored by git so they remain secret. They're imported by the `export_postman_collection.py` script. 
 
 As explained in the issues you have to run `./export_postman_collection.sh` before commiting your code to make sure you have the latest version of the collection.
 
