@@ -14,7 +14,7 @@ It's advised to use a package structure for larger projects or even blueprints b
 
 ## Flask
 
-Make app available: `export FLASK_APP=postcards`
+Make app available: `export FLASK_APP=app`
 
 Activate debug mode: `export FLASK_ENV=development`
 
