@@ -8,9 +8,13 @@ Install required Python packages.
 
 `pip install -r requirements.txt`
 
+## Project structure
+
+It's advised to use a package structure for larger projects or even blueprints but since I have no idea what the limitation of the current approach could be I prefer to keep it simple with a single file `app.py` importing other files.
+
 ## Flask
 
-Make app available: `export FLASK_APP=appname`
+Make app available: `export FLASK_APP=postcards`
 
 Activate debug mode: `export FLASK_ENV=development`
 
