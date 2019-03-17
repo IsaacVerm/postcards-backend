@@ -28,3 +28,10 @@ Keep REST design principles in mind (e.g. [Programming historian](https://progra
 
 Deploying a single file module is [different](https://stackoverflow.com/questions/50023430/deploying-flask-application-written-in-one-file-to-heroku) from deploying a fullblown app as done in the tutorial so the `gunicorn` line is different.
 
+For automated deployment using Travis there are some gotchas regarding Python:
+
+* the Python version used is 3.6 because 3.7 is not supported by Travis yet
+* there's a line saying `script: python -m unittest` although there are no unittests
+
+The `script: python -m unittest` line is there because Travis refuses to go on if no tests are ran at all.
+
