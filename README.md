@@ -1,4 +1,4 @@
-# Postcards
+# postcards-backend
 
 ## Goal
 
@@ -88,28 +88,6 @@ Run server: `flask run`
 ## API
 
 Keep REST design principles in mind (e.g. [Programming historian](https://programminghistorian.org/en/lessons/creating-apis-with-python-and-flask#api-design-principles)).
-
-## Testing
-
-### API testing
-
-Testing is done using Postman and Newman (the Postman CLI).
-
-Requests are part of collections and tests are linked to requests.
-
-Tests can be run using `newman run collection`. Tests are also configured to be run using [Travis](https://travis-ci.com/IsaacVerm/postcards).
-
-By default updates in tests aren't automatically exported as collections. The `newman` CLI [doesn't offer](https://github.com/postmanlabs/postman-app-support/issues/2691) any functionality to do this either. Since manually exporting the tests each time you push a commit is a hassle we still need an automated approach. A request is sent using the Postman API to retrieve the latest version of the collection.
-
-An API key and collection uid of the collection are necessary to send the request. Both of these are in the `secrets.py` file. This file ignored by git so they remain secret. They're imported by the `export_postman_collection.py` script. 
-
-As explained in the issues you have to run `./export_postman_collection.sh` before commiting your code to make sure you have the latest version of the collection.
-
-### E2E testing
-
-E2E testing is done with Cypress.
-
-Launch Cypress from root: `npm run cypress:open`. Based on script in `package.json`.
 
 ## Documentation
 
