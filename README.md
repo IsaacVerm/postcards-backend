@@ -38,14 +38,15 @@ Deploying a single file module is [different](https://stackoverflow.com/question
 
 For automated deployment using Travis there are some gotchas regarding Python:
 
-* the Python version used is 3.6 because 3.7 is not supported by Travis yet
-* there's a line saying `script: python -m unittest` although there are no unittests
+- the Python version used is 3.6 because 3.7 is not supported by Travis yet
+- there's a line saying `script: python -m unittest` although there are no unittests
 
 The `script: python -m unittest` line is there because Travis refuses to go on if no tests are ran at all.
-
 
 ## Sources used
 
 [Codementor tutorial Flask with SQLAlchemy](https://www.codementor.io/garethdwyer/building-a-crud-application-with-flask-and-sqlalchemy-dm3wv7yu2)
 
 [SQLite3 tutorial](https://docs.python.org/3/library/sqlite3.html)
+
+[How to work with Flask responses](https://blog.miguelgrinberg.com/post/customizing-the-flask-response-class)

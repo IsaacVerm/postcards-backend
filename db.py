@@ -1,5 +1,5 @@
 import sqlite3
-import os
+
 
 def create_postcards_connection():
     connection = sqlite3.connect('postcards.db')
@@ -9,6 +9,7 @@ def create_postcards_connection():
 def create_cursor(connection):
     cursor = connection.cursor()
     return cursor
+
 
 def create_cards_table(cursor):
     cursor.execute('''CREATE TABLE IF NOT EXISTS cards
@@ -29,4 +30,5 @@ def close_connection(connection):
 
 
 def get_all_cards(cursor):
-    cursor.execute("SELECT * FROM cards").fetchall()
+    cards = cursor.execute("SELECT * FROM cards").fetchall()
+    return cards
