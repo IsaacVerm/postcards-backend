@@ -20,6 +20,10 @@ Activate debug mode: `export FLASK_ENV=development`
 
 Run server: `flask run`
 
+## Database
+
+Database used is [`sqlite3`](https://docs.python.org/3/library/sqlite3.html#module-sqlite3) since it's just a file and no server setup is needed.
+
 ## API design
 
 Keep REST design principles in mind (e.g. [Programming historian](https://programminghistorian.org/en/lessons/creating-apis-with-python-and-flask#api-design-principles)).
@@ -39,3 +43,9 @@ For automated deployment using Travis there are some gotchas regarding Python:
 
 The `script: python -m unittest` line is there because Travis refuses to go on if no tests are ran at all.
 
+
+## Sources used
+
+[Codementor tutorial Flask with SQLAlchemy](https://www.codementor.io/garethdwyer/building-a-crud-application-with-flask-and-sqlalchemy-dm3wv7yu2)
+
+[SQLite3 tutorial](https://docs.python.org/3/library/sqlite3.html)

@@ -1,15 +1,32 @@
 import sqlite3
+import os
 
-conn = sqlite3.connect('postcards.db')
+def create_postcards_connection():
+    connection = sqlite3.connect('postcards.db')
+    return connection
 
-c = conn.cursor()
 
-# c.execute('''CREATE TABLE cards
-#              (year text, description text, country text)''')
+def create_cursor(connection):
+    cursor = connection.cursor()
+    return cursor
 
-# c.execute("INSERT INTO cards VALUES ('1991', 'A nice card', 'Belgium')")
+def create_cards_table(cursor):
+    cursor.execute('''CREATE TABLE IF NOT EXISTS cards
+             (year text, description text, country text)''')
 
-# conn.commit()
-# conn.close()
 
-print(c.execute("SELECT * FROM cards").fetchall())
+def insert_values_into_cards_table(cursor, year, description, country):
+    cursor.execute(
+        "INSERT INTO cards VALUES ('1991', 'A nice card', 'Belgium')")
+
+
+def save_data(connection):
+    connection.commit()
+
+
+def close_connection(connection):
+    connection.close()
+
+
+def get_all_cards(cursor):
+    cursor.execute("SELECT * FROM cards").fetchall()
