@@ -1,8 +1,14 @@
 import sqlite3
+from flask import jsonify
+
+
+def save_data(connection):
+    connection.commit()
 
 
 def create_postcards_connection():
     connection = sqlite3.connect('postcards.db')
+    connection.row_factory = sqlite3.Row
     return connection
 
 
@@ -13,16 +19,23 @@ def create_cursor(connection):
 
 def create_cards_table(cursor):
     cursor.execute('''CREATE TABLE IF NOT EXISTS cards
-             (year text, description text, country text)''')
+             (cardId text, photoUrl text, name text, description text, creationDate text)''')
 
 
-def insert_values_into_cards_table(cursor, year, description, country):
+def insert_card_into_cards_table(cursor, cardId, photoUrl, name, description, timestamp):
     cursor.execute(
-        "INSERT INTO cards VALUES ('1991', 'A nice card', 'Belgium')")
+        "INSERT INTO cards VALUES (?, ?, ?, ?, ?)", (cardId, photoUrl, name, description, timestamp))
 
 
-def save_data(connection):
-    connection.commit()
+def delete_card_from_cards_table(cursor, connection, cardId):
+    cursor.execute("DELETE FROM cards WHERE cardId = ?", (cardId))
+    save_data(connection)
+
+
+def find_card_in_cards_table(cursor, cardId):
+    card = cursor.execute(
+        "SELECT * FROM cards WHERE cardId = ?", (cardId)).fetchone()
+    return(card)
 
 
 def close_connection(connection):

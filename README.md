@@ -50,3 +50,7 @@ The `script: python -m unittest` line is there because Travis refuses to go on i
 [SQLite3 tutorial](https://docs.python.org/3/library/sqlite3.html)
 
 [How to work with Flask responses](https://blog.miguelgrinberg.com/post/customizing-the-flask-response-class)
+
+[Which HTTP status code, response body and headers to return](https://evertpot.com/http/201-created)
+
+[How ETags works](https://www.logicbig.com/quick-info/web/etag-header.html)
