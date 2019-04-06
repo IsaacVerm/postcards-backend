@@ -54,3 +54,5 @@ The `script: python -m unittest` line is there because Travis refuses to go on i
 [Which HTTP status code, response body and headers to return](https://evertpot.com/http/201-created)
 
 [How ETags works](https://www.logicbig.com/quick-info/web/etag-header.html)
+
+[How to make Row in Flask json serializable](https://stackoverflow.com/questions/34715593/rows-returned-by-pyodbc-are-not-json-serializable)

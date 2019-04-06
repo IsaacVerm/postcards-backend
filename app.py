@@ -56,13 +56,19 @@ def postcards():
     # setup
     connection = create_postcards_connection()
     cursor = create_cursor(connection)
-    create_cards_table(cursor)
 
-    # get data from database
+    # get cards from database
     cards = get_all_cards(cursor)
 
-    # return to user
-    return make_response((jsonify(cards), 200))
+    # make cards json serializable as list of dictionaries
+    cards_list = []
+    for card in cards:
+        cards_list.append(dict(card))
 
-    # close connection
-    close_connection(connection)
+    # return the cards found and 200 if there is at least one card
+    if len(cards_list) > 0:
+        return make_response(jsonify({'cards': cards_list}), 200)
+
+    # return 204 if no cards were found
+    if len(cards_list) == 0:
+        return make_response('', 200)
