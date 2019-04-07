@@ -24,6 +24,10 @@ Run server: `flask run`
 
 Database used is [`sqlite3`](https://docs.python.org/3/library/sqlite3.html#module-sqlite3) since it's just a file and no server setup is needed.
 
+## Security
+
+By default Cross Origin Resource Sharing (CORS) is disabled in Flask. Since we make calls to the API from another app (frontend) CORS is enabled.
+
 ## API design
 
 Keep REST design principles in mind (e.g. [Programming historian](https://programminghistorian.org/en/lessons/creating-apis-with-python-and-flask#api-design-principles)).
@@ -56,3 +60,5 @@ The `script: python -m unittest` line is there because Travis refuses to go on i
 [How ETags works](https://www.logicbig.com/quick-info/web/etag-header.html)
 
 [How to make Row in Flask json serializable](https://stackoverflow.com/questions/34715593/rows-returned-by-pyodbc-are-not-json-serializable)
+
+[Setup CORS](https://flask-cors.readthedocs.io/en/latest/)

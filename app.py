@@ -1,9 +1,11 @@
 import sqlite3
 from flask import Flask, jsonify, request, make_response
+from flask_cors import CORS
 from db import *
 
 # create flask app
 app = Flask(__name__)
+CORS(app)
 
 
 @app.route('/postcard', methods=['POST'])
