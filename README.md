@@ -62,3 +62,5 @@ The `script: python -m unittest` line is there because Travis refuses to go on i
 [How to make Row in Flask json serializable](https://stackoverflow.com/questions/34715593/rows-returned-by-pyodbc-are-not-json-serializable)
 
 [Setup CORS](https://flask-cors.readthedocs.io/en/latest/)
+
+[What to return when resource already exists](https://stackoverflow.com/questions/3825990/http-response-code-for-post-when-resource-already-exists)

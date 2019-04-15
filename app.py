@@ -15,8 +15,17 @@ def postcard():
     cursor = create_cursor(connection)
     create_cards_table(cursor)
 
-    # save data to database
+    # get form data
     data = request.form
+
+    # if card with same cardId already exists
+    nr_existing_cards = find_card_in_cards_table(cursor, data['cardId'])
+    card_already_exists_body = jsonify({'errors': {
+                                       'type': 'cardIdAlreadyExists', 'description': 'A card with the same cardId does already exist.'}})
+    if nr_existing_cards is not None:
+        return make_response(card_already_exists_body, 409)
+
+    # save data to database
     insert_card_into_cards_table(
         cursor, data['cardId'], data['photoUrl'], data['name'], data['description'], data['creationDate'])
     save_data(connection)
